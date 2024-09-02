@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block title %}June{% endblock %}
+
+{% block content %}
+<div class="jumbotron text-center">
+ <div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>June</h1>
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style_table.css') }}">
+      <p>| 🚶‍ 20 mins  || 🏃 15 mins  || 💃 20 mins  || 👩‍🏫 20 mins  || 🧘‍ 20 mins  || 👩‍🍳 30 mins  |</p>
+ <div class="line">
+   <div class="column">
+    <h1 class="days">Days</h1>
+      <table class="table1" id="table1" style="color: white">
+         <thead>
+                   <th align="center" width=50>Day</th>
+         </thead>
+
+          <tbody>
+                   {% for i in range(31): %}
+                     <tr>
+                     <td>{{ i + 1}}</td>
+                     </tr>
+                   {% endfor %}
+          </tbody>
+      </table>
+      </div>
+
+      <div class="column">
+       <h1 class="habits">Habits</h1>
+          <table class="table2" id="table2" style="color: white">
+          <thead>
+
+                   <th align="center" width=300>Walking</th>
+                   <th align="center" width=300>Running</th>
+                   <th align="center" width=300>DanceWorkout</th>
+                   <th align="center" width=300>Reading</th>
+                   <th align="center" width=300>Meditation</th>
+                   <th align="center" width=300>Cooking</th>
+
+          </thead>
+
+          <tbody>
+             {% for row in data: %}
+
+              <tr>
+                  {% for cell in row %}
+                       <td>{{ cell }}</td>
+                  {% endfor %}
+              </tr>
+
+             {% endfor %}
+          </tbody>
+      </table>
+    </div>
+   </div>
+      <p><a href="{{ url_for('june_write') }}">Add another day's habits</a></p>
+       <p><a href="{{ url_for('may_read') }}">⬅️</a></p>
+      <p><a href="{{ url_for('july_read') }}">➡️</a></p>
+      <p><a href="{{ url_for('home') }}">Return to index page</a></p>
+
+   </div>
+  </div>
+ </div>
+</div>
+
+{% endblock %}
